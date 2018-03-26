@@ -1,0 +1,54 @@
+public interface IBookManager extends android.os.IInterface{
+    class stub extends Binder implements interface{
+        //Binder的唯一标识
+        String DESCRIPTOR;
+        方法一标识;
+        方法二标识;
+        
+        //用于将服务端的Binder对象转换成客户端所需的AIDL接口类型的对象，转换区分
+        进程，同进程直接返回服务端进程，不同进程返回stub.proxy对象
+        interface asInterface(android.os.IBinder obj){...}
+        
+        //返回当前Binder对象
+        Binder asBinder(){...}
+
+        //该方法运行在服务端的Binder线程池中，客户端发起跨进程请求时，远程请求会通
+        过底层封装后交由该方法处理，根据code值调用对应方法，根据data获取客户端传递
+        参数，通过reply返回对应数据，该方法可用来跨进程调用的鉴权
+        boolean onTransact(int code, android.os.Parcel data, android.os.Parcel 
+        reply, int flags){
+            switch(code){
+                case INTERFACE_TRANSACTION:
+                ...
+                    return true;
+                case 方法一标识:
+                ...
+                    return true;
+                case 方法二标识:
+                ...
+                    return true;
+            }
+            return super.onTransact(code, data, reply, flags);
+        }
+
+        //该方法运行在客户端，当客户端远程调用对应的方法时，会初始化对应的写入参数和
+        结果参数，调用transact方法来发起远程过程调用请求，同时挂起请求等待服务端的
+        onTransact执行完毕得到返回值回传给reply，最终再返回reply的值
+        class Proxy implements interface{
+            private android.os.IBinder mRemote;
+            Proxy(android.os.IBinder remote){
+                mRemote = remote;
+            }
+            @Override
+            public android.os.IBinder asBinder(){
+              return mRemote;
+            }
+
+            public void 方法一（）{...}
+    
+            public void 方法二（）{...}
+        }
+    }
+    public void 方法一（）{...}
+    public void 方法二（）{...}
+}
