@@ -38,7 +38,7 @@ adb shell am start -n <packagename.launchActivity>
 adb shell am force-stop <packagename>
 
 15.查看日志
-adb logcat
+adb logcat -日志级别（v d i w e）
 
 16.获取日志信息并存储到对应文件
 adb logcat >对应文件路径地址
