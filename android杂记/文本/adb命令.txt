@@ -1,0 +1,59 @@
+1.安装一个apk文件
+adb install <apkfile>
+
+2.adb install /Users/storm/temp/demo.apk
+保留数据和缓存文件，重新安装apk
+
+3.adb install -r demo.apk
+安装apk到sd卡上
+
+4.adb install -s demo.apk
+卸载apk文件
+
+5直接卸载
+adb uninstall <package>
+
+6.卸载app但保留数据和缓存文件
+adb uninstall -k <package>
+
+7.启动adb server
+adb start-server
+
+8.停止adb server
+adb kill-server
+
+9.列出系统应用的所有包名
+adb shell pm list package -s
+
+10.列出所有第三方应用
+adb shell pm list packages -3
+
+11.清除应用数据与缓存
+adb shell pm clear <packagename>
+
+12.启动应用
+adb shell am start -n <packagename.launchActivity>
+
+14.强制停止应用
+adb shell am force-stop <packagename>
+
+15.查看日志
+adb logcat
+
+16.获取日志信息并存储到对应文件
+adb logcat >对应文件路径地址
+
+17.获取序列号
+adb get-serialno
+
+18.获取MAC地址
+adb shell cat /sys/class/net/wlan0/address
+
+19.查看设备型号
+adb shell getprop ro.product.model
+
+20.查看Android系统版本
+adb shell getprop ro.build.version.release
+
+21.查看屏幕分辨率
+adb shell wm size
