@@ -1,4 +1,4 @@
-1.安装一个apk文件
+﻿1.安装一个apk文件
 adb install <apkfile>
 
 2.adb install /Users/storm/temp/demo.apk
@@ -57,3 +57,15 @@ adb shell getprop ro.build.version.release
 
 21.查看屏幕分辨率
 adb shell wm size
+
+22.cd命令
+cd ～:代表进入家目录
+cd /:进入根目录
+cd ..:返回上级目录
+cd -:返回上一次的目录
+
+23.ls查看的命令
+ls -a:查看所有的文件命令
+ls -l:查看文件的详细信息
+ls -h:用人类方便的方式显示
+
