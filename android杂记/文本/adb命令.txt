@@ -71,7 +71,7 @@ ls -a:查看所有的文件命令
 ls -l:查看文件的详细信息
 ls -h:用人类方便的方式显示
 
-24debug靠前，在应用启动阶段如何调试
+24.debug靠前，在应用启动阶段如何调试
 adb shell am set-debug-app -w <packagename>
 adb shell am set-debug-app -w -persitent <packagename>
 adb shell am clear-debug-app
@@ -80,4 +80,5 @@ set-debug-app用来应用为debug模式
 -persitent意思是持久的，意思是一直设置这个应用为调试模式，即每次开启（进程创建）都会弹出对话框，即使卸载再安装或者更新应用
 clear-debug-app恢复正常启动
 
-
+25.查看屏幕详细信息
+adb shell dumpsys window displays 
